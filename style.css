@@ -1,0 +1,606 @@
+/* Global setting */
+
+:root {
+    /* Color */
+    --color-white: #ffffff;
+    --color-light-white: #eeeeee;
+    --color-dark-white: #bdbdbd;
+    --color-pink: #fe918d;
+    --color-dark-pink: #ff6863;
+    --color-dark-grey: #4d4d4d;
+    --color-dark-blue:#1a1981e1;
+    --color-grey: #616161;
+    --color-light-grey: #7c7979;
+    --color-blue: #276fc2;
+    --color-yellow: #fff7d1;
+    --color-orange: #feb546;
+    --color-black: #000000;
+  
+    /* Font size */
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+  
+    /* Font weight */
+    --weight-bold: 700;
+    --weight-semi-bold: 600;
+    --weight-regular: 400;
+
+    /* Size */
+    --size-border-radius: 4px;
+
+    /* Annimation*/
+    --animation-duration: 300ms;
+  }
+
+/* Universal tags */
+*{
+    /* border-box로 패딩을 줬을때 높이와 너비가 그 패딩을 포함 했을때도 동일한 높이와 너비가 되도록 만들기  */
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    cursor: default;
+}
+
+a{
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+/* Typography */
+
+h1{
+    font-size: var(--font-large);
+    font-weight: var(--weight-bold);
+    color: var(--color-black);
+    margin: 16px 0;
+}
+
+h2{
+    font-size: var(--font-medium);
+    font-weight: var(--weight-semi-bold);
+    color: var(--color-black);
+    margin: 8px 0;
+}
+
+h3{
+    font-size: var(--font-regular);
+    font-weight: var(--font-regular);
+    color: var(--color-black);
+    margin: 8px 0;
+}
+
+.imgLogo{
+    display: inline;
+}
+
+.home_avatar {
+    width: 30vw;
+}
+
+/* Navbar */
+#navbar {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    align-items: center;
+    color: var(--color-white);
+    padding: 16px;
+    transition: all var(--animation-duration) ease-in-out;
+    /* z-index를 사용해야 고정정 상단바가 화면 제일 위로 올라와서 어느 영역에 있든 잘리지 않는다.
+        work부분에  이미지쪽으로 가면 잘렸던 현상을 없앨수 있었다. */
+    z-index: 1;
+}
+/* 상단바 만들때 같이 쓰이는 코드 */
+#navbar.navbar--dark{
+    background-color: var(--color-dark-grey);
+    padding: 8px;
+}
+
+.navbar__logo{
+    font-size: var(--font-medium);
+    font-weight: var(--weight-semi-bold);
+}
+
+.navbar__menu {
+    display: flex;
+
+}
+
+.navbar__menu__item {
+    padding: 8px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: var(--size-border-radius);
+}
+
+.navbar__menu__item:hover {
+    border-color: var(--color-white);
+    background-color: var(--color-grey);
+    
+}
+
+.navbar__toggle-btn {
+    position: absolute;
+    top: 25px;
+    right: 32px;
+    font-size: 24px;
+    color: var(--color-white);
+    display: none;
+}
+
+
+/* Home */
+#home {
+    background: url("imgs/home-background.png") center/cover no-repeat;
+    padding: 40px 40px;
+    padding-top: 120px;
+    text-align: center;
+}
+
+.home_avatar {
+    width: 250px;
+    border-radius: 50%;
+    border: 2px solid var(--color-light-white);
+}
+
+.home__title,
+.home__description {
+    color: var(--color-white);
+}
+
+.home__contact {
+    color: var(--color-white);
+    font-size: var(--font-regular);
+    font-weight: var(--weight-bold);
+    margin: 24px;
+    padding: 8px 12px;
+    border: 2px solid var(--color-white);
+    border-radius: 4px;
+}
+
+/* Section common */
+.section {
+    padding: 50px;
+    padding-top: 70px;
+    text-align: center;
+    margin: auto;
+}
+
+.section_container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* About major */
+.about__majors {
+    display: flex;
+    justify-content: space-between;
+    margin: 80px 0;
+}
+
+.major__icon {
+    width: 170px;
+    height: 170px;
+    line-height: 170px; /* line-height을 높이만큼 지정하게 되면 자동으로 중간에 오게된다. (수직 높이를 직접 설정할 수 있어 매우 유용하다)*/
+    font-size: 70px;
+    margin: auto;
+    color: var(--color-blue);
+    border: 1px solid var(--color-blue);
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+/* 300ms는 사용자가 느끼기에 뭔가 재밌는 애니메이션이 있지만 지루하지 않는 조금 표준화된 좋은 수치 */
+.major__icon i {
+    transition: all var(--animation-duration) ease;
+}
+
+/*icon전체에 hover가 되었을때 i에게만 이 스타일을 적용하겠다.*/
+.major__icon:hover i{
+    color: var(--color-pink);
+    transform: rotate(-30deg) scale(1.1);
+}
+.major__title,
+.major__description {
+    color: var(--color-dark-grey);
+}
+
+.major__description {
+    font-size: var(--font-small);
+}
+
+.job {
+    display: flex;
+    align-items: center;
+}
+
+.job__description {
+    margin: 0 16px;
+    text-align: left;
+}
+
+.job__name,
+.job__period {
+    color: var(--color-light-grey);
+}
+
+.job__name {
+    font-size: var(--font-small);
+}
+
+.job__period {
+    font-size: var(--font-micro);
+}
+
+/* Skill */
+
+#skills{
+    background-color: var(--color-yellow);
+}
+
+.skillset{
+    display: flex;
+    background-color: var(--color-light-grey);
+    color: var(--color-light-white);
+    margin: 20px 0;
+}
+
+.skillset__title {
+    color: var(--color-white);
+}
+
+.skillset__left {
+    flex-basis: 60%;
+    background-color: var(--color-dark-grey);
+    padding: 20px 40px;
+}
+
+.skill {
+    margin-bottom: 32px;
+}
+
+.skill_description {
+    display: flex;
+    justify-content: space-between;
+}
+/* div안에 컨텐츠가 없기 때문에 높이와 너비를 지정해줘야한다. */
+.skill__bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-grey);
+}
+
+.skill__value {
+    height: 3px;
+    background-color: var(--color-orange);
+}
+
+.skillset__right {
+    flex-basis: 60%;
+}
+
+.tools {
+    background-color: var(--color-grey);
+}
+
+.tools, .etc {
+    padding: 20px;
+}
+
+.tools__list li, .etc__list li{
+    padding: 2px;
+}
+
+/* Work */
+.work__categories {
+    margin: 40px;
+}
+.category__btn {
+    position: relative;
+    border: 1px solid var(--color-dark-white);
+    border-radius: var(--size-border-radius);
+    font-size: var(--font-regular);
+    padding: 8px 48px;
+}
+
+.category__btn.selected,
+.category__btn:hover {
+    background-color: var(--color-pink);
+    color: var(--color-white);
+}
+/* 액티브나 마우스가 올라가면 숫자가 내려오게 하기 */
+.category__btn.selected .category__count,
+.category__btn:hover .category__count {
+    opacity: 1;
+    top: 6px;
+}
+.category__count {
+    background-color: var(--color-orange);
+    border-radius: 50%;
+    color: var(--color-white);
+    width: 24px;
+    height: 24px;
+    /* span은 컨텐츠를 꽉 감싸주는 사이즈로 정해지기 때문에 원이 이쁘지않다
+        그럴때 display:inline-block으로 변경해주면 좋다. */
+    display: inline-block;
+    line-height: 24px;
+    /* 숫자를 안보였다 마우스 올리면 보이게 하기 */
+    position: absolute;
+    top: -20px;
+    right: 16px;
+    opacity: 0;
+    transition: all var(--animation-duration) ease-in;
+}
+
+.work__projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 1;
+    transition: all var(--animation-duration) ease-in;
+}
+
+.work__projects.anim-out {
+    opacity: 0;
+    transform: scale(0.96) translateY(40px);
+}
+
+.project {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 250px;
+    margin: 2px;
+    background-color: var(--color-light-white);
+}
+
+.project.invisible {
+    display: none;
+}
+
+.project__img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.project__description {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--animation-duration) ease-in;
+}
+
+.project:hover .project__description {
+    opacity: 0.8;
+    transform: translateY(0px);
+}
+
+.project__description h3 {
+    color: var(--color-orange);
+}
+
+/* title과 설명들에 선 넣기 */
+.project__description h3:after {
+    content: '';
+    display: block;
+    position: relative;
+    left: 50%;
+    width: 53px;
+    height: 2px;
+    transform: translateX(-50%);
+    margin-top: 8px;
+    background-color: var(--color-dark-white);
+}
+
+/* Testimonial */
+#testimonials {
+    background-color: var(--color-light-white);
+}
+
+.testimonials {
+    margin: 40px;
+}
+
+.testimonial {
+    display: flex;
+    margin: 32px;
+}
+
+.testimonial__avata {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+}
+
+.testimonial__avata:nth-child(odd) {
+    margin-right: 40px;
+}
+
+.testimonial__avata:nth-child(even) {
+    margin-left: 40px;
+}
+
+.testimonial__speech-bubble {
+    padding: 10px;
+    background-color: var(--color-white);
+    border-radius: var(--size-border-radius);
+}
+
+.testimonial__speech-bubble p {
+    color: var(--color-light-grey);
+}
+
+.testimonial__speech-bubble a{
+    color: var(--color-pink);
+}
+
+/* Conntact */
+#contact {
+    background-color: var(--color-dark-grey);
+}
+
+.contact__title,
+.contact__email,
+.contact__rights {
+    color: var(--color-white);
+}
+
+.contact__title {
+    margin: 32px 0;
+}
+
+.contact__links {
+    font-size: var(--font-large);
+    margin: 24px 0;
+}
+
+.contact__links i:hover {
+    transform: scale(1.1);
+    transition: all var(--animation-duration) ease-in;
+    color: yellowgreen;
+}
+
+/* Arrow btn */
+.arrow-up {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: var(--font-medium);
+    background-color: yellowgreen;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms ease-out;
+}
+
+.arrow-up.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@media screen and (max-width: 768px){
+ :root {
+     /* Font size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+ }
+    .navbar__toggle-btn {
+        display: block;
+        top: 19px;
+        right: 16px;
+        font-size: var(--font-medium);
+    }
+
+    #navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: var(--color-light-grey);
+    }
+    #navbar.navbar--dark {
+        padding: 16px;
+    }
+    .navbar__menu {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        display: none;
+    }
+
+    .navbar__menu.open {
+        display: block;
+    }
+
+    .about__majors {
+        flex-direction: column;
+    }
+
+    .major {
+        margin-bottom: 38px;
+    }
+
+    .skillset {
+        flex-direction: column;
+    }
+
+    .work__categories {
+        text-align: center;
+    }
+
+    .category__btn {
+        margin: 4px 0;
+        width: 100%;
+    }
+
+    .project {
+        flex-grow: 1;
+    }
+
+    .testimonial {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial__speech-bubble {
+        order: 1;
+    }
+
+    .testimonial__avata:nth-child(even),
+    .testimonial__avata:nth-child(odd){
+        margin: 0;
+    }
+
+    .category__btn.active,
+    .category__btn {
+        margin: 3px 0;
+    }
+
+    .testimonial__avata {
+        width: 80px;
+        height: 80px;
+    }
+
+    .arrow-up {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        right: 16px;
+        bottom: 25px;
+    }
+}
