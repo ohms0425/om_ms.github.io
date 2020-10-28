@@ -516,7 +516,7 @@ h3{
  :root {
      /* Font size */
     --font-large: 30px;
-    --font-medium: 18px;
+    --font-medium: 16px;
     --font-regular: 16px;
     --font-small: 14px;
     --font-micro: 12px;
@@ -549,6 +549,8 @@ h3{
 
     .about__majors {
         flex-direction: column;
+        margin-top: 30px;
+        margin-bottom: 0px;
     }
 
     .major {
@@ -584,6 +586,7 @@ h3{
     .testimonial__avata:nth-child(even),
     .testimonial__avata:nth-child(odd){
         margin: 0;
+        margin-bottom: 4px;
     }
 
     .category__btn.active,
