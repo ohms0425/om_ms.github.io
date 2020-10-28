@@ -521,6 +521,9 @@ h3{
     --font-small: 14px;
     --font-micro: 12px;
  }
+    .section {
+        padding: 16px;
+    }
     .navbar__toggle-btn {
         display: block;
         top: 19px;
