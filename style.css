@@ -132,6 +132,7 @@ h3{
     cursor: pointer;
     border: 1px solid transparent;
     border-radius: var(--size-border-radius);
+    transition: 300s;
 }
 
 .navbar__menu__item:hover {
@@ -508,6 +509,7 @@ h3{
 }
 
 .arrow-up.visible {
+    text-align: center;
     opacity: 1;
     pointer-events: auto;
 }
